@@ -1,0 +1,80 @@
+/* MINI PROJECT PPS  BY GYANENDAR KUMAR TIWARI (RA2111003010339 AND 356) */
+// SPORTS COMPLEX MANAGEMENT
+// CODE
+
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <string.h>
+struct library
+{
+    char ball_name[30];
+    char ball_type[30];
+    int no_of_balls;
+    float price;
+};
+int main()
+{
+    struct library l[100];
+    char bl_ty[30], bl_nm[30];
+    int i, j, keepcount;
+    i = j = keepcount = 0;
+    while (j != 6)
+    {
+      printf("\n\n****###### WELCOME TO SPORTS COMPLEX MANAGEMENT SYSTEM #####****\n");
+      printf("\n\n 1. Add Ball information\n 2. Display Ball information\n");
+      printf("3. List all balls of given type\n");
+      printf("4. List the name of specified ball\n");
+      printf("5. List the Types of balls in the Complex\n");
+      printf("6. Exit");
+      printf ("\n\nEnter one of the above : ");
+      scanf("%d",&j);
+    switch (j){
+        case 1:
+            printf("Enter ball name = ");
+            scanf("%s", l[i].ball_name);
+            printf("Enter ball type = ");
+            scanf("%s", l[i].ball_type);
+            printf("Enter Number of Balls = ");
+            scanf("%d", &l[i].no_of_balls);
+            printf("Enter price = ");
+            scanf("%f", &l[i].price);
+            keepcount++;
+            break;
+        case 2:
+            printf("you have entered the following information\n");
+            for (i = 0; i < keepcount; i++)
+            {
+                printf("ball name = %s", l[i].ball_name);
+                printf("\t ball type = %s", l[i].ball_type);
+                printf("\t number of balls = %d", l[i].no_of_balls);
+                printf("\t price = %f", l[i].price);
+            }
+            break;
+        case 3:
+            printf("Enter ball type : ");
+            scanf("%s", bl_ty);
+            for (i = 0; i < keepcount; i++)
+            {
+                if (strcmp(bl_ty, l[i].ball_type) == 0)
+                printf ("%s %s %d %f",l[i].ball_name,l[i].ball_type,l[i].no_of_balls,l[i].price);
+            }
+            break;
+        case 4:
+            printf("Enter ball name : ");
+            scanf("%s", bl_nm);
+            for (i = 0; i < keepcount; i++)
+            {
+                if (strcmp(bl_nm, l[i].ball_name) == 0)
+                printf ("%s \t %s \t %d \t %f",l[i].ball_name,l[i].ball_type,l[i].no_of_balls,l[i].price);
+            }
+            break;
+        case 5:
+            printf("\n Types of balls in Complex : %d", keepcount);
+            break;
+        case 6:
+            exit(0); 
+}
+    }
+    return 0;
+}
